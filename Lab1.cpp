@@ -18,15 +18,15 @@ int main() {
     bool validInput = false;
 
     while (!validInput) {
-        std::cout << "Ââåäèòå ÷èñëî äëÿ âû÷èñëåíèÿ ôàêòîğèàëà: ";
+        std::cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ´Ğ»Ñ Ğ²Ñ‹Ñ‡Ğ¸ÑĞ»ĞµĞ½Ğ¸Ñ Ñ„Ğ°ĞºÑ‚Ğ¾Ñ€Ğ¸Ğ°Ğ»Ğ°: ";
         if (!(std::cin >> number)) {
             std::cin.clear(); 
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-            std::cout << "Îøèáêà ââîäà. Ââåäèòå ÷èñëî" << std::endl;
+            std::cout << "ĞÑˆĞ¸Ğ±ĞºĞ° Ğ²Ğ²Ğ¾Ğ´Ğ°. Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾" << std::endl;
             continue;
         }
         if (number <= 0 || number > 20) {
-            std::cout << "Íåêîğğåêòíûé ââîä. Ââåäèòå ÷èñëî îò 1 äî 20" << std::endl;
+            std::cout << "ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ñ‹Ğ¹ Ğ²Ğ²Ğ¾Ğ´. Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ¾Ñ‚ 1 Ğ´Ğ¾ 20" << std::endl;
         }
         else {
             validInput = true;
@@ -36,7 +36,7 @@ int main() {
     std::vector<std::thread> threads;
     std::vector<unsigned long long> results(maxThreads, 1);
 
-    std::cout << "Âû÷èñëÿåì ôàêòîğèàë ÷èñëà: " << number << std::endl;
+    std::cout << "Ğ’Ñ‹Ñ‡Ğ¸ÑĞ»ÑĞµĞ¼ Ñ„Ğ°ĞºÑ‚Ğ¾Ñ€Ğ¸Ğ°Ğ» Ñ‡Ğ¸ÑĞ»Ğ°: " << number << std::endl;
 
     int optimalThreads = 1; 
     auto minDuration = std::chrono::microseconds::max();
@@ -59,8 +59,8 @@ int main() {
         auto endTime = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
  
-        std::cout << "Çàâåğøåíî ñ " << numThreads << " ïîòîêàìè. Âğåìÿ âûïîëíåíèÿ: " << duration.count() << " ìêñ" << std::endl;
-        std::cout << "Ôàêòîğèàë " << number << " ğàâåí " << calcTheFact(1, number) << std::endl;
+        std::cout << "Ğ—Ğ°Ğ²ĞµÑ€ÑˆĞµĞ½Ğ¾ Ñ " << numThreads << " Ğ¿Ğ¾Ñ‚Ğ¾ĞºĞ°Ğ¼Ğ¸. Ğ’Ñ€ĞµĞ¼Ñ Ğ²Ñ‹Ğ¿Ğ¾Ğ»Ğ½ĞµĞ½Ğ¸Ñ: " << duration.count() << " Ã¬ÃªÃ±" << std::endl;
+        std::cout << "Ğ¤Ğ°ĞºÑ‚Ğ¾Ñ€Ğ¸Ğ°Ğ» " << number << " Ñ€Ğ°Ğ²ĞµĞ½ " << calcTheFact(1, number) << std::endl;
 \
         if (duration < minDuration) {
             minDuration = duration;
@@ -68,7 +68,7 @@ int main() {
         }
         threads.clear();
     }
-    std::cout << "Îïòèìàëüíîå êîëè÷åñòâî ïîòîêîâ: " << optimalThreads << std::endl;
+    std::cout << "ĞĞ¿Ñ‚Ğ¸Ğ¼Ğ°Ğ»ÑŒĞ½Ğ¾Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ Ğ¿Ğ¾Ñ‚Ğ¾ĞºĞ¾Ğ²: " << optimalThreads << std::endl;
 
     return 0;
 }
